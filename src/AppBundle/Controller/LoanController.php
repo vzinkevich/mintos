@@ -19,6 +19,7 @@ class LoanController extends Controller
 {
     /**
      * @Route("/loans", name="Loans")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {
@@ -49,6 +50,8 @@ class LoanController extends Controller
 
     /**
      * @Route("/invest", name="invest")
+     * @param Request $request
+     * @return JsonResponse
      */
     public function invest(Request $request)
     {
@@ -77,6 +80,11 @@ class LoanController extends Controller
         ));
     }
 
+    /**
+     * @param $loanKey
+     * @param $investmentAmount
+     * @return float
+     */
     private function updateLoan($loanKey, $investmentAmount)
     {
         /** @var $loan Loan*/
@@ -94,6 +102,10 @@ class LoanController extends Controller
         return $availableForInvestments;
     }
 
+    /**
+     * @param $investmentAmount
+     * @return float
+     */
     private function updateUser($investmentAmount)
     {
         /** @var $userEntity User */

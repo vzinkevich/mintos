@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {

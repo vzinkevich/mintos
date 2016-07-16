@@ -20,12 +20,6 @@ class Loan
 	 */
 	protected $id;
 	/**
-	 * @var integer
-	 *
-	 * @ORM\Column(name="user_id", type="integer", nullable=false)
-	 */
-	protected $userId;
-	/**
 	 * @var float
 	 *
 	 * @ORM\Column(name="amount", type="float", options={"unsigned":true, "default":0})
@@ -47,22 +41,6 @@ class Loan
 	public function getId()
 	{
 		return $this->id;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getUserId()
-	{
-		return $this->userId;
-	}
-
-	/**
-	 * @param int $userId
-	 */
-	public function setUserId($userId)
-	{
-		$this->userId = $userId;
 	}
 
 	/**

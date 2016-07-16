@@ -15,6 +15,7 @@ class InvestmentHistoryController extends Controller
 {
 	/**
 	 * @Route("/investment_history", name="Investment history")
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
 	 */
 	public function index()
 	{

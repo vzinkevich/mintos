@@ -3,6 +3,7 @@ $(function() {
     var hideErrContainers = function () {
         $('.alert-danger').addClass('hidden');
         $('.alert-danger').text('');
+        $('.invest-amount-input').val('');
     };
 
     var showErrorContainer = function ($container, $msg) {
