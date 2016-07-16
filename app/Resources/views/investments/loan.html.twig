@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if  app.user %}
+        <div class="text-right">
+            <div>Money left: $<span id="moneyAvailable">{{ moneyAvailable }}</span></div>
+        </div>
+        <div class="text-center">
+            <h3>Available loans</h3>
+        </div>
+        <div>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <th class="text-center">#</th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">Available</th>
+                <th class="text-center">Action</th>
+                </thead>
+                <tbody>
+                {% for loan in loans %}
+                    <tr>
+                        <td class="col-sm-1">{{ loop.index }}</td>
+                        <td class="col-sm-3">${{ loan.amount }}</td>
+                        <td class="col-sm-2 available-for-investment">${{ loan.availableForInvestments }}</td>
+                        <td class="col-sm-6" data-id="{{ loan.id }}">
+                            <div class="form-group col-sm-6">
+                                <input type="text" class="form-control invest-amount-input col-sm-6">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button type="button" class="btn btn-info invest-btn col-sm-6">Invest</button>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <div class="alert alert-danger hidden"></div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        Please log in.
+    {% endif %}
+
+{% endblock %}
+
+
